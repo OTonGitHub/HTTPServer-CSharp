@@ -12,6 +12,7 @@ while (true)
     Console.WriteLine("Waiting For Incoming Connections On 127.0.0.1:4221");
 
     using var socket = await server.AcceptSocketAsync();
+    await Task.Delay(1000);
     Console.WriteLine("Client Connected!");
 
     await socket.SendAsync(Encoding.UTF8.GetBytes($"{HTTP_OK_STATUS_LINE}\r\n\r\n"), SocketFlags.None);
